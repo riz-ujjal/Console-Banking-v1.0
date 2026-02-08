@@ -11,6 +11,17 @@ class BakAccount
         balance = balance +amount;
         System.out.println("Deposited: " + amount);
     }
+        void withdraw(double amount)
+        {
+            if (balance >= amount)
+            {
+                balance = balance - amount;
+                System.out.println("Withdraw: " + amount);
+            }
+            else {
+                System.out.println("Insufficent Fund");
+            }
+        }
 }
 public class looppss {
     static void main(String[] args){
@@ -20,6 +31,7 @@ public class looppss {
         //take the value from the user to deposit and withdraw.
 //        System.out.println("Enter the money you want to Deposit: ");
         double deposited;
+        double withdrawed;
 
         while (true) {
             System.out.println("""
@@ -33,10 +45,16 @@ public class looppss {
                 System.out.println("Enter the money you want to Deposit: ");
                 deposited = sc.nextDouble();
                 myAc.deposit(deposited);
+
+            }
+            if (user_input == 2) {
+                System.out.println("Amount to Withdraw: ");
+                withdrawed = sc.nextDouble();
+                myAc.withdraw(withdrawed);
                 break;
             }
-            if (user_input == 2){
-
+            else {
+                System.out.println("hello");
             }
         }
         //take the value from the user to deposit and withdraw.
