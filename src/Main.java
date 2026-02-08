@@ -1,13 +1,51 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    IO.println(String.format("Hello and welcome!"));
+import java.util.Scanner;
+class BankAccount
+{
+    String accountHolderName;
+    String accountNumber;
+    double balance;
 
-    for (int i = 1; i <= 5; i++) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        IO.println("i = " + i);
+    void deposit(double amount)
+    {
+
+        balance = balance +amount;
+        System.out.println("Deposited: " + amount);
+    }
+
+    void withdraw(double amount)
+    {
+        balance = balance - amount;
+        System.out.println("Withdraw: " + amount);
+    }
+
+    void displayBalance()
+    {
+        System.out.println("Current Balance: " + balance);
     }
 }
+
+public class Main
+{
+
+    public static void main(String[] args)
+    {
+
+
+        Scanner sc = new Scanner(System.in);
+        BankAccount myAcc = new BankAccount(); //create a new bank account object based on the blue print above
+        System.out.println("Enter your name: ");
+        myAcc.accountHolderName = sc.nextLine();
+        myAcc.balance =0.0;
+        //take the value from the user to deposit and withdraw.
+        System.out.println("Enter the money you want to Deposit: ");
+        double deposited = sc.nextDouble();
+        System.out.println("Enter the money you want to Withdraw+: ");
+        double withdrawed = sc.nextDouble();
+        myAcc.deposit(deposited);
+        myAcc.withdraw(withdrawed);
+        myAcc.displayBalance();
+
+
+    }
+}
+
