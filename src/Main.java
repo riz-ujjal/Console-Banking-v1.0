@@ -57,7 +57,14 @@ public class Main {
                 myAcc.withdraw(withdrawed);
                 break;
             }
+            else if (user_input == 3){
+                myAcc.displayBalance();
+                break;
+            } else if (user_input == 4) {
+                System.out.println("Exited");
+                break;
 
+            }
         }
 
     }
