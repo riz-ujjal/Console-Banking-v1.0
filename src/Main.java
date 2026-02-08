@@ -24,28 +24,41 @@ class BankAccount
     }
 }
 
-public class Main
-{
+public class Main {
 
-    public static void main(String[] args)
-    {
-
+    public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        BankAccount myAcc = new BankAccount(); //create a new bank account object based on the blue print above
+        BankAccount myAcc = new BankAccount(); //create a new bank account object based on the blueprint above
         System.out.println("Enter your name: ");
         myAcc.accountHolderName = sc.nextLine();
-        myAcc.balance =0.0;
-        //take the value from the user to deposit and withdraw.
-        System.out.println("Enter the money you want to Deposit: ");
-        double deposited = sc.nextDouble();
-        System.out.println("Enter the money you want to Withdraw+: ");
-        double withdrawed = sc.nextDouble();
-        myAcc.deposit(deposited);
-        myAcc.withdraw(withdrawed);
-        myAcc.displayBalance();
+        myAcc.balance = 0.0;
+        double deposited;
+        double withdrawed;
 
+        // Performing the task user wants to
+        while (true) {
+            System.out.println("""
+                    press 1 to Deposit.
+                    press 2 to Withdraw.
+                    press 3 to Check Bank Balance
+                    press 4 to Exit.
+                    What do you want to perform:""");
+            int user_input = sc.nextInt();
+            if (user_input == 1) {
+                System.out.println("Enter the money you want to Deposit: ");
+                deposited = sc.nextDouble();
+                myAcc.deposit(deposited);
+                break;
+            }
+            if (user_input == 2) {
+                System.out.println("Enter the amount you want to Withdraw: ");
+                withdrawed = sc.nextDouble();
+                myAcc.withdraw(withdrawed);
+                break;
+            }
+
+        }
 
     }
 }
-
