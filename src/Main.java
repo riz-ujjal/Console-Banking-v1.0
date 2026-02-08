@@ -41,7 +41,7 @@ public class Main {
         myAcc.balance = 0.0;
         double deposited;
         double withdrawed;
-        double balance;
+
 
         // Performing the task user wants to
         while (true) {
@@ -57,7 +57,7 @@ public class Main {
                 deposited = sc.nextDouble();
                 myAcc.deposit(deposited);
             }
-            if (user_input == 2) {
+            else if (user_input == 2) {
                 System.out.println("Amount to Withdraw: ");
                 withdrawed = sc.nextDouble();
                 myAcc.withdraw(withdrawed);
