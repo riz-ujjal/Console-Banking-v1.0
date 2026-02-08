@@ -5,17 +5,23 @@ class BankAccount
     String accountNumber;
     double balance;
 
+    // Created a Method here.
     void deposit(double amount)
     {
-
         balance = balance +amount;
         System.out.println("Deposited: " + amount);
     }
 
     void withdraw(double amount)
     {
-        balance = balance - amount;
-        System.out.println("Withdraw: " + amount);
+        if (balance >= amount)
+        {
+            balance = balance - amount;
+            System.out.println("Withdraw: " + amount);
+        }
+        else{
+            System.out.println("Insufficient Balance\n");
+        }
     }
 
     void displayBalance()
@@ -35,10 +41,10 @@ public class Main {
         myAcc.balance = 0.0;
         double deposited;
         double withdrawed;
+        double balance;
 
         // Performing the task user wants to
-        while (true)
-        {
+        while (true) {
             System.out.println("""
                     press 1 to Deposit.
                     press 2 to Withdraw.
@@ -46,36 +52,26 @@ public class Main {
                     press 4 to Exit.
                     What do you want to perform:""");
             int user_input = sc.nextInt();
-            if (user_input == 1)
-            {
-                System.out.println("Enter the money you want to Deposit: ");
+            if (user_input == 1) {
+                System.out.println("Amount to Deposit: ");
                 deposited = sc.nextDouble();
                 myAcc.deposit(deposited);
-                break;
             }
-            if (user_input == 2)
-            {
-                System.out.println("Enter the amount you want to Withdraw: ");
+            if (user_input == 2) {
+                System.out.println("Amount to Withdraw: ");
                 withdrawed = sc.nextDouble();
                 myAcc.withdraw(withdrawed);
-                break;
-            }
-            else if (user_input == 3)
-            {
+
+            } else if (user_input == 3) {
                 myAcc.displayBalance();
-                break;
-            }
-            else if (user_input == 4)
-            {
+
+            } else if (user_input == 4) {
                 System.out.println("Exited");
                 break;
             }
-            else {
-                System.out.println("\'Enter the valid performance.\'\n");
-
+            else{
+                System.out.println("Enter the valid task");
             }
-
         }
-
     }
 }
